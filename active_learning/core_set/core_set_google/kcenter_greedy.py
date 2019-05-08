@@ -15,18 +15,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Returns points that minimizes the maximum distance of any point to a center.
+""" Returns points that minimizes the maximum distance of any point to a center.
 
-Implements the k-Center-Greedy method in
-Ozan Sener and Silvio Savarese.  A Geometric Approach to Active Learning for
-Convolutional Neural Networks. https://arxiv.org/abs/1708.00489 2017
+Implements the k-Center-Greedy method
+in Ozan Sener and Silvio Savarese.
 
-Distance metric defaults to l2 distance.  Features used to calculate distance
-are either raw features or if a model has transform method then uses the output
-of model.transform(X).
+A Geometric Approach to Active Learning for Convolutional Neural Networks.
+https://arxiv.org/abs/1708.00489 2017
 
-Can be extended to a robust k centers algorithm that ignores a certain number of
-outlier datapoints.  Resulting centers are solution to multiple integer program.
+Distance metric defaults to l2 distance.
+Features used to calculate distance are either raw features
+or if a model has transform method then uses the output of model.transform(X).
+
+Can be extended to a robust k centers algorithm
+that ignores a certain number of outlier data points.
+Resulting centers are solution to multiple integer program.
 """
 
 from __future__ import absolute_import
@@ -35,11 +38,12 @@ from __future__ import print_function
 
 import numpy as np
 from sklearn.metrics import pairwise_distances
-from sampling_methods.sampling_def import SamplingMethod
+from core_set_google.sampling_def import SamplingMethod
 
 
 class kCenterGreedy(SamplingMethod):
-    def __init__(self, X, y, seed, metric='euclidean'):
+    def __init__(self, X, y, metric='euclidean'):
+        super(kCenterGreedy, self).__init__()
         self.X = X
         self.y = y
         self.flat_X = self.flatten_X()
@@ -61,19 +65,19 @@ class kCenterGreedy(SamplingMethod):
         """
 
         if reset_dist:
-        self.min_distances = None
+            self.min_distances = None
         if only_new:
-        cluster_centers = [d for d in cluster_centers
-                           if d not in self.already_selected]
+            cluster_centers = [d for d in cluster_centers
+                               if d not in self.already_selected]
         if cluster_centers:
-        # Update min_distances for all examples given new cluster center.
-        x = self.features[cluster_centers]
-        dist = pairwise_distances(self.features, x, metric=self.metric)
+            # Update min_distances for all examples given new cluster center.
+            x = self.features[cluster_centers]
+            dist = pairwise_distances(self.features, x, metric=self.metric)
 
         if self.min_distances is None:
-          self.min_distances = np.min(dist, axis=1).reshape(-1,1)
+            self.min_distances = np.min(dist, axis=1).reshape(-1,1)
         else:
-          self.min_distances = np.minimum(self.min_distances, dist)
+            self.min_distances = np.minimum(self.min_distances, dist)
 
     def select_batch_(self, model, already_selected, N, **kwargs):
         """
