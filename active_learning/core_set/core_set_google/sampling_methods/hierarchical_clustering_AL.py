@@ -27,9 +27,8 @@ from __future__ import print_function
 import numpy as np
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.decomposition import PCA
-from sklearn.neighbors import kneighbors_graph
 from sampling_methods.sampling_def import SamplingMethod
-from sampling_methods.utils.tree import Tree
+from utils.utils import Tree
 
 
 class HierarchicalClusterAL(SamplingMethod):

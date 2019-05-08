@@ -27,9 +27,9 @@ from __future__ import print_function
 
 import abc
 
-from core_set_google.constants import AL_MAPPING
-from core_set_google.constants import get_all_possible_arms
-from core_set_google.sampling_def import SamplingMethod
+from sampling_methods.constants import AL_MAPPING
+from sampling_methods.constants import get_all_possible_arms
+from sampling_methods.sampling_def import SamplingMethod
 
 get_all_possible_arms()
 

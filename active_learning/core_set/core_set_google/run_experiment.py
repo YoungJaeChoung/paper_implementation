@@ -49,7 +49,7 @@ from tensorflow import gfile
 from sampling_methods.constants import AL_MAPPING
 from sampling_methods.constants import get_AL_sampler
 from sampling_methods.constants import get_wrapper_AL_mapping
-from utils import utils
+from utils.utils import utils
 
 flags.DEFINE_string("dataset", "letter", "Dataset name")
 flags.DEFINE_string("sampling_method", "margin",

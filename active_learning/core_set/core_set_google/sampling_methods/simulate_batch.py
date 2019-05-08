@@ -25,8 +25,7 @@ import math
 
 import numpy as np
 
-from core_set_google.wrapper_sampler_def import AL_MAPPING
-from core_set_google.wrapper_sampler_def import WrapperSamplingMethod
+from sampling_methods.wrapper_sampler_def import WrapperSamplingMethod
 
 
 class SimulateBatchSampler(WrapperSamplingMethod):

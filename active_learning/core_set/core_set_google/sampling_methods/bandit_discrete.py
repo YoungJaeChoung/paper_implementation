@@ -30,7 +30,7 @@ from __future__ import print_function
 
 import numpy as np
 
-from core_set_google.wrapper_sampler_def import AL_MAPPING, WrapperSamplingMethod
+from sampling_methods.wrapper_sampler_def import WrapperSamplingMethod
 
 
 class BanditDiscreteSampler(WrapperSamplingMethod):
