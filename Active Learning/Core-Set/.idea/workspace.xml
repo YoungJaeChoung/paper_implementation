@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0cfa3ebb-a20a-4434-ae7e-709683bb424c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/youngjae.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Core-Set.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../active_learning/core_set/core_set_ej0cl6/kcenter_greedy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../active_learning/core_set/core_set_ej0cl6/strategy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compute_distance_mat.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core_set.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core_set/kcenter_greedy.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core_set/sampling_def.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/img_reader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/svhn_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robust_trainer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Cost-Effective Active Learning for Deep Image Classification/cost_effective.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../active_learning/core_set/core_set_google/kcenter_greedy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="48" column="38" lean-forward="true" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
+            <state relative-caret-position="546">
+              <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
               <folding>
                 <element signature="e#1288#1326#0" expanded="true" />
               </folding>
@@ -40,12 +28,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../active_learning/core_set/core_set_google/sampling_def.py">
+        <entry file="file://$PROJECT_DIR$/../../active_learning/core_set/core_set_ej0cl6/kcenter_greedy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
-              <caret line="50" column="42" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
+            <state relative-caret-position="250">
+              <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
               <folding>
-                <element signature="e#881#919#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,6 +71,8 @@
         <option value="$PROJECT_DIR$/core_set/kcenter_greedy.py" />
         <option value="$PROJECT_DIR$/../../active_learning/core_set/core_set_google/sampling_def.py" />
         <option value="$PROJECT_DIR$/../../active_learning/core_set/core_set_google/kcenter_greedy.py" />
+        <option value="$PROJECT_DIR$/../../active_learning/core_set/core_set_ej0cl6/strategy.py" />
+        <option value="$PROJECT_DIR$/../../active_learning/core_set/core_set_ej0cl6/kcenter_greedy.py" />
       </list>
     </option>
   </component>
@@ -157,11 +147,11 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13883016" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13883016" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.2807229" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.2807229" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
@@ -231,20 +221,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../active_learning/core_set/core_set_ej0cl6/strategy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../active_learning/core_set/core_set_google/sampling_def.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="50" column="42" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
+        <state relative-caret-position="196">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="e#881#919#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../active_learning/core_set/core_set_ej0cl6/kcenter_greedy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../active_learning/core_set/core_set_google/kcenter_greedy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="48" column="38" lean-forward="true" selection-start-line="48" selection-start-column="38" selection-end-line="48" selection-end-column="38" />
+        <state relative-caret-position="546">
+          <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
           <folding>
             <element signature="e#1288#1326#0" expanded="true" />
           </folding>

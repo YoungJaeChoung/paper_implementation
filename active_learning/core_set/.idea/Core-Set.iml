@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/core_set" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/core_set_google" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/core_set_ej0cl6" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.6 (tf)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
