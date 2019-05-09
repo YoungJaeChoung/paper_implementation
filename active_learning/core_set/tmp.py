@@ -5,12 +5,8 @@ import sys
 
 
 if __name__=="__main__":
-    for i in range(5):
-        print(i, flush=True)
-        # time.sleep(1)
-        if i == 4:
-            sys.stdout.flush()
-
+    if [1]:
+        print(1)
     # for i in range(5):
     #     print(i)
     #     sys.stdout.flush()

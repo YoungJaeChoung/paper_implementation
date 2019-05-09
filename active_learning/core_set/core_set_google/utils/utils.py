@@ -149,10 +149,13 @@ def filter_data(X, y, keep=None):
 def get_class_counts(y_full, y):
     """Gets the count of all classes in a sample.
 
-    Args:
+    Args
+    ----
     y_full: full target vector containing all classes
     y: sample vector for which to perform the count
-    Returns:
+
+    Returns
+    -------
     count of classes for the sample vector y, the class order for count will
     be the same as long as same y_full is fed in
     """

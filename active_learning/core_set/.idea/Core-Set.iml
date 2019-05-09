@@ -5,9 +5,13 @@
       <sourceFolder url="file://$MODULE_DIR$/core_set" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/core_set_google" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/core_set_ej0cl6" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/core_set_ej0cl6/query_strategies" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.6 (tf)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="R User Library" level="project" />
+    <orderEntry type="library" name="R Skeletons" level="application" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />

@@ -50,6 +50,7 @@ def make_figure_folder():
     if not os.path.exists("./figures"):
         os.makedirs("./figures")
 
+
 if __name__=="__main__":
     # path
     print("Current Dir:", os.getcwd())
