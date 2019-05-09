@@ -26,7 +26,7 @@ class Strategy:
         self.idxs_lb = idxs_lb
 
     def _train(self, loader_tr, optimizer):
-        self.clf.train()    # Todo: clf 가 뭐지 ... ?
+        self.clf.train()    # Todo: clf 가 뭐지 ... ? self 랑 같은 형태인가 ... ?
         for batch_idx, (x, y, idxs) in enumerate(loader_tr):
             x, y = x.to(self.device), y.to(self.device)
             optimizer.zero_grad()
@@ -45,7 +45,11 @@ class Strategy:
                                shuffle=True, **self.args['loader_tr_args'])
 
         for epoch in range(1, n_epoch + 1):
-            self._train(epoch, loader_tr, optimizer)
+            """
+            # original: self._train(epoch, loader_tr, optimizer)
+            # todo: TypeError: _train() takes 3 positional arguments but 4 were given
+            """
+            self._train(loader_tr, optimizer)
 
     def predict(self, X, Y):
         loader_te = DataLoader(self.handler(X, Y, transform=self.args['transform']),
