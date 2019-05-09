@@ -15,17 +15,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Run active learner on classification tasks.
+""" Run active learner on classification tasks.
 
-Supported datasets include mnist, letter, cifar10, newsgroup20, rcv1,
-wikipedia attack, and select classification datasets from mldata.
-See utils/create_data.py for all available datasets.
+Supported datasets include
+mnist, letter, cifar10, newsgroup20, rcv1, wikipedia attack,
+and select classification datasets from mldata.
 
-For binary classification, mnist_4_9 indicates mnist filtered down to just 4 and
-9.
+For binary classification,
+mnist_4_9 indicates mnist filtered down to just 4 and 9.
+
 By default uses logistic regression but can also train using kernel SVM.
 2 fold cv is used to tune regularization parameter over a exponential grid.
-
 """
 
 from __future__ import absolute_import
@@ -42,14 +42,24 @@ import numpy as np
 from sklearn.preprocessing import normalize
 from sklearn.preprocessing import StandardScaler
 
-from google.apputils import app    # todo: google library - https://github.com/google/google-apputils
+# from google.apputils import app    # todo: google library - https://github.com/google/google-apputils
+"""
+main 부분의 app.run() 에서 사용됨 ... ? 
+나는 이 부분 없애는 작업을 하면 될 듯 ... ? 
+"""
 import gflags as flags    # todo: google library - https://github.com/google/python-gflags
-from tensorflow import gfile
+"""
+이 부분은 뭔지 모르겟음 
+"""
+from tensorflow import gfile    # todo: 이거 뭐지 ... ?
+"""
+이 부분은 왜 import 할까 ... ? 
+"""
 
 from sampling_methods.constants import AL_MAPPING
 from sampling_methods.constants import get_AL_sampler
 from sampling_methods.constants import get_wrapper_AL_mapping
-from utils.utils import utils
+from core_set_google.utils import utils
 
 flags.DEFINE_string("dataset", "letter", "Dataset name")
 flags.DEFINE_string("sampling_method", "margin",
@@ -95,7 +105,9 @@ flags.DEFINE_string("do_save", "True",
 FLAGS = flags.FLAGS
 
 
-get_wrapper_AL_mapping()
+get_wrapper_AL_mapping()    # todo: 이거 뭐지 ... ?
+""" setting 관련 함수인 듯 
+"""
 
 
 def generate_one_curve(X,
@@ -112,50 +124,115 @@ def generate_one_curve(X,
                        standardize_data=False,
                        norm_data=False,
                        train_horizon=0.5):
+    # todo: debugging 돌려보면 좋을 듯
     """Creates one learning curve for both active and passive learning.
 
-    Will calculate accuracy on validation set as the number of training data
-    points increases for both PL and AL.
-    Caveats: training method used is sensitive to sorting of the data so we
-    resort all intermediate datasets
+    Will calculate accuracy on validation set
+    as the number of training data points increases for both PL and AL.
+    Caveats: training method used is sensitive to sorting of the data
+    so we resort all intermediate datasets
 
-    Args:
+    Args
+    ----
     X: training data
     y: training labels
-    sampler: sampling class from sampling_methods, assumes reference
-      passed in and sampler not yet instantiated.
-    score_model: model used to score the samplers.  Expects fit and predict
-      methods to be implemented.
-    seed: seed used for data shuffle and other sources of randomness in sampler
-      or model training
-    warmstart_size: float or int.  float indicates percentage of train data
-      to use for initial model
-    batch_size: float or int.  float indicates batch size as a percent of
-      training data
-    select_model: defaults to None, in which case the score model will be
-      used to select new datapoints to label.  Model must implement fit, predict
-      and depending on AL method may also need decision_function.
-    confusion: percentage of labels of one class to flip to the other
-    active_p: percent of batch to allocate to active learning
-    max_points: limit dataset size for preliminary
-    standardize_data: wheter to standardize the data to 0 mean unit variance
-    norm_data: whether to normalize the data.  Default is False for logistic
-      regression.
-    train_horizon: how long to draw the curve for.  Percent of training data.
+    sampler:
+        sampling class from sampling_methods,
+        assumes reference passed in and sampler not yet instantiated.
+        todo: sampling class ... ?
+         class (object) 를 말하는 건가 ... ?
+    score_model:
+        model used to score the samplers.
+        Expects fit and predict methods to be implemented.
+        todo: score_model ... ?
+    seed:
+        seed used for data shuffle
+        and other sources of randomness in sampler or model training
+    warmstart_size:
+        (float or int)
+        float indicates percentage of train data
+        to use for initial model
+    batch_size:
+        (float or int)
+        float indicates batch size
+        as a percent of training data
+        Todo: 왜 percentage 로 했지 ... ?
+    select_model:
+        defaults to None,
+        in which case
+        the score model will be used to select new datapoints to label.
+        Model must implement fit, predict
+        and depending on AL method may also need decision_function.
+    confusion:
+        percentage of labels of one class
+        to flip to the other
+        todo: 이거 뭐지 ... ?
+    active_p:
+        percent of batch
+        to allocate to active learning
+    max_points:
+        limit dataset size for preliminary
+        todo: 이거 뭐지 ... ?
+    standardize_data:
+        wheter to standardize the data
+        to 0 mean unit variance
+    norm_data:
+        whether to normalize the data.
+        (Default is False
+         for logistic regression)
+    train_horizon:
+        how long to draw the curve for.
+        Percent of training data.
 
-    Returns:
-    results: dictionary of results for all samplers
-    sampler_states: dictionary of sampler objects for debugging
+    Returns
+    -------
+    results:
+        dictionary of results for all samplers
+        todo: 이게 뭐지 ... ?
+    sampler_states:
+        dictionary of sampler objects for debugging
+        todo: 이게 뭐지 ... ?
     """
-    # TODO(lishal): add option to find best hyperparameter setting first on
-    # full dataset and fix the hyperparameter for the rest of the routine
-    # This will save computation and also lead to more stable behavior for the
-    # test accuracy
 
-    # TODO(lishal): remove mixture parameter and have the mixture be specified as
-    # a mixture of samplers strategy
-    def select_batch(sampler, uniform_sampler, mixture, N, already_selected,
-                   **kwargs):
+    # TODO(lishal):
+    # add option to find best hyperparameter setting first on
+    #  full dataset and fix the hyperparameter for the rest of the routine
+    #  This will save computation and also lead to more stable behavior for the
+    #  test accuracy
+    # todo: 위에 써진대로 하면 test 가 제대로 되는 것이 아닌 듯
+
+    # TODO(lishal):
+    # remove mixture parameter and have the mixture be specified as
+    #  a mixture of samplers strategy
+    # todo: mixture parameter 가 어떻게 설정되어있지 ... ?
+
+    def select_batch(sampler,
+                     uniform_sampler,
+                     mixture,
+                     N,
+                     already_selected,
+                     **kwargs):
+        # todo: comment
+        """
+        Args
+        ----
+            sampler:
+            uniform_sampler:
+                todo: uniform_sampler ... ?
+                 uniform random sampling 말하는 것인가 ... ?
+            mixture:
+                todo: percentage 관련된 것인데 뭘까 ... ?
+            N:
+            already_selected:
+                todo: 대충은 뭔가 먼저 선택된 데이터 같은데 ㅡ 더 명확히 정의 필요
+            kwargs:
+                todo: 여기에 뭐가 들어갈 수 있는지 정리 필요
+
+        Returns
+        -------
+            batch_AL + batch_PL
+            todo: 이게 뭐지 ... ?
+        """
         n_active = int(mixture * N)
         n_passive = N - n_active
         kwargs["N"] = n_active
@@ -202,9 +279,11 @@ def generate_one_curve(X,
         X_train = scaler.transform(X_train)
         X_val = scaler.transform(X_val)
         X_test = scaler.transform(X_test)
-    print("active percentage: " + str(active_p) + " warmstart batch: " +
-          str(seed_batch) + " batch size: " + str(batch_size) + " confusion: " +
-          str(confusion) + " seed: " + str(seed))
+    print("active percentage: " + str(active_p) +
+          " warmstart batch: " + str(seed_batch) +
+          " batch size: " + str(batch_size) +
+          " confusion: " + str(confusion) +
+          " seed: " + str(seed))
 
     # Initialize samplers
     uniform_sampler = AL_MAPPING["uniform"](X_train, y_train, seed)
@@ -216,6 +295,7 @@ def generate_one_curve(X,
     selected_inds = range(seed_batch)
 
     # If select model is None, use score_model
+    # todo: score_model ... ?
     same_score_select = False
     if select_model is None:
       select_model = score_model
@@ -249,6 +329,7 @@ def generate_one_curve(X,
             "y_test": y_val,
             "y": y_train
         }
+        # todo: select_batch ... ?
         new_batch = select_batch(sampler, uniform_sampler, active_p, n_sample,
                                  selected_inds, **select_batch_inputs)
         selected_inds.extend(new_batch)
@@ -269,30 +350,32 @@ def generate_one_curve(X,
 
 def main(argv):
     del argv
+    # todo: 왜 이걸 입력받고 지울까 ... ?
 
     if not gfile.Exists(FLAGS.save_dir):
-      try:
-        gfile.MkDir(FLAGS.save_dir)
-      except:
-        print(('WARNING: error creating save directory, '
-               'directory most likely already created.'))
+        try:
+            gfile.MkDir(FLAGS.save_dir)
+        except NotImplementedError:
+            print('WARNING: error creating save directory, '
+                  'directory most likely already created.')
 
+    # todo: os.path.join 조사
     save_dir = os.path.join(
         FLAGS.save_dir,
         FLAGS.dataset + "_" + FLAGS.sampling_method)
     do_save = FLAGS.do_save == "True"
 
     if do_save:
-      if not gfile.Exists(save_dir):
-        try:
-          gfile.MkDir(save_dir)
-        except:
-          print(('WARNING: error creating save directory, '
-                 'directory most likely already created.'))
-      # Set up logging
-      filename = os.path.join(
-          save_dir, "log-" + strftime("%Y-%m-%d-%H-%M-%S", gmtime()) + ".txt")
-      sys.stdout = utils.Logger(filename)
+        if not gfile.Exists(save_dir):
+            try:
+                gfile.MkDir(save_dir)
+            except NotImplementedError:
+                print('WARNING: error creating save directory, '
+                      'directory most likely already created.')
+        # Set up logging
+        filename = os.path.join(
+            save_dir, "log-" + strftime("%Y-%m-%d-%H-%M-%S", gmtime()) + ".txt")
+        sys.stdout = utils.Logger(filename)    # todo: Logger ... ?
 
     confusions = [float(t) for t in FLAGS.confusions.split(" ")]
     mixtures = [float(t) for t in FLAGS.active_sampling_percentage.split(" ")]
@@ -305,25 +388,25 @@ def main(argv):
     starting_seed = FLAGS.seed
 
     for c in confusions:
-      for m in mixtures:
-        for seed in range(starting_seed, starting_seed + FLAGS.trials):
-          sampler = get_AL_sampler(FLAGS.sampling_method)
-          score_model = utils.get_model(FLAGS.score_method, seed)
-          if (FLAGS.select_method == "None" or
-              FLAGS.select_method == FLAGS.score_method):
-            select_model = None
-          else:
-            select_model = utils.get_model(FLAGS.select_method, seed)
-          results, sampler_state = generate_one_curve(
-              X, y, sampler, score_model, seed, FLAGS.warmstart_size,
-              FLAGS.batch_size, select_model, c, m, max_dataset_size,
-              standardize_data, normalize_data, FLAGS.train_horizon)
-          key = (FLAGS.dataset, FLAGS.sampling_method, FLAGS.score_method,
-                 FLAGS.select_method, m, FLAGS.warmstart_size, FLAGS.batch_size,
-                 c, standardize_data, normalize_data, seed)
-          sampler_output = sampler_state.to_dict()
-          results["sampler_output"] = sampler_output
-          all_results[key] = results
+        for m in mixtures:
+            for seed in range(starting_seed, starting_seed + FLAGS.trials):
+                sampler = get_AL_sampler(FLAGS.sampling_method)
+                score_model = utils.get_model(FLAGS.score_method, seed)
+                if (FLAGS.select_method == "None" or
+                    FLAGS.select_method == FLAGS.score_method):
+                    select_model = None
+                else:
+                    select_model = utils.get_model(FLAGS.select_method, seed)
+                results, sampler_state = generate_one_curve(
+                    X, y, sampler, score_model, seed, FLAGS.warmstart_size,
+                    FLAGS.batch_size, select_model, c, m, max_dataset_size,
+                    standardize_data, normalize_data, FLAGS.train_horizon)
+                key = (FLAGS.dataset, FLAGS.sampling_method, FLAGS.score_method,
+                       FLAGS.select_method, m, FLAGS.warmstart_size, FLAGS.batch_size,
+                       c, standardize_data, normalize_data, seed)
+                sampler_output = sampler_state.to_dict()
+                results["sampler_output"] = sampler_output
+                all_results[key] = results
     fields = [
       "dataset", "sampler", "score_method", "select_method",
       "active percentage", "warmstart size", "batch size", "confusion",
