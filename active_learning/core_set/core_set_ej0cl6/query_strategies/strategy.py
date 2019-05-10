@@ -6,6 +6,8 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
+from tqdm import tqdm
+
 
 class Strategy:
     def __init__(self, X, Y, idxs_lb, net, handler, args):
@@ -26,11 +28,11 @@ class Strategy:
         self.idxs_lb = idxs_lb
 
     def _train(self, loader_tr, optimizer):
-        self.clf.train()    # Todo: clf 가 뭐지 ... ? self 랑 같은 형태인가 ... ?
-        for batch_idx, (x, y, idxs) in enumerate(loader_tr):
+        self.clf.train()    # clf: classifier
+        for batch_idx, (x, y, idxs) in enumerate(loader_tr):    # Todo: 여기 몇번 도는 것이지 ... ?
             x, y = x.to(self.device), y.to(self.device)
             optimizer.zero_grad()
-            out, e1 = self.clf(x)
+            out, e1 = self.clf(x)   # e1: hidden layer before last layer
             loss = F.cross_entropy(out, y)
             loss.backward()
             optimizer.step()
@@ -39,15 +41,13 @@ class Strategy:
         n_epoch = self.args['n_epoch']
         self.clf = self.net().to(self.device)
         optimizer = optim.SGD(self.clf.parameters(), **self.args['optimizer_args'])
-
         idxs_train = np.arange(self.n_pool)[self.idxs_lb]
         loader_tr = DataLoader(self.handler(self.X[idxs_train], self.Y[idxs_train], transform=self.args['transform']),
                                shuffle=True, **self.args['loader_tr_args'])
-
-        for epoch in range(1, n_epoch + 1):
+        for epoch in tqdm(range(1, n_epoch + 1)):
             """
             # original: self._train(epoch, loader_tr, optimizer)
-            # todo: TypeError: _train() takes 3 positional arguments but 4 were given
+            # >> TypeError: _train() takes 3 positional arguments but 4 were given
             """
             self._train(loader_tr, optimizer)
 
@@ -117,6 +117,7 @@ class Strategy:
         return probs
 
     def get_embedding(self, X, Y):
+        # Todo: 이거 뭐지 ... ?
         loader_te = DataLoader(self.handler(X, Y, transform=self.args['transform']),
                                shuffle=False, **self.args['loader_te_args'])
 
