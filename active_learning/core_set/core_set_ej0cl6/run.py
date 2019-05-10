@@ -114,28 +114,30 @@ if __name__=="__main__":
     print("Current Dir:", os.getcwd())
 
     strategy.train()    # iter: 10
-    P = strategy.predict(X_te, Y_te)    # Todo: 이거 어떻게 돌아가는걸까 ... ?
+    P = strategy.predict(X_te, Y_te)
     acc = np.zeros(NUM_ROUND+1)
     acc[0] = 1.0 * (Y_te==P).sum().item() / len(Y_te)
     print('Round 0\ntesting accuracy {}'.format(acc[0]))
 
     # Todo: 시간 많이 걸리는데 ㅡ 왜 그렇지 ... ? gpu를 안쓰나 ... ?
     for rd in range(1, NUM_ROUND+1):    # todo: 이 부분 이해 필요
+        """
+        rd = 1 
+        """
         print('Round {}'.format(rd))
 
         # query (55.039 sec)
         start_time = datetime.now()
-        q_idxs = strategy.query(NUM_QUERY)
+        q_idxs = strategy.query(NUM_QUERY)  # Todo: handler
         idxs_lb[q_idxs] = True
         print(datetime.now() - start_time)
 
         # update
-        # Todo: self.idxs_lb 의 역할 ... ? lb data 만 뽑아서 학습하나 ... ?
         strategy.update(idxs_lb)    # update: self.idxs_lb = idxs_lb
         strategy.train()    # Todo: train 속도가 왜이리 오래 걸릴까 ... ? 데이터가 커서 그런가 ... ?
 
         # round accuracy
-        P = strategy.predict(X_te, Y_te)    # Todo: predict 함수
+        P = strategy.predict(X_te, Y_te)
         acc[rd] = 1.0 * (Y_te==P).sum().item() / len(Y_te)
         print('testing accuracy {}'.format(acc[rd]))
 
