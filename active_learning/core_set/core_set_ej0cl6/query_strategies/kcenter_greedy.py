@@ -7,12 +7,12 @@ from datetime import datetime
 
 class KCenterGreedy(Strategy):
     def __init__(self, X, Y, idxs_lb, net, handler, args):
-        super(KCenterGreedy, self).__init__(X, Y, idxs_lb, net, handler, args)  # Todo: 이거 확인 필요
+        super(KCenterGreedy, self).__init__(X, Y, idxs_lb, net, handler, args)
 
     def query(self, n):
         lb_flag = self.idxs_lb.copy()
         embedding = self.get_embedding(self.X, self.Y)
-        embedding = embedding.numpy()   # Todo: 왜 embedding space 에서 할까 ... ?
+        embedding = embedding.numpy()
 
         # calculate dist matrix
         print('calculate distance matrix')
@@ -37,4 +37,8 @@ class KCenterGreedy(Strategy):
             mat = np.delete(mat, q_idx_, axis=0)
             mat = np.append(mat, dist_mat[~lb_flag, q_idx][:, None], axis=1)
 
-        return np.arange(self.n_pool)[(self.idxs_lb ^ lb_flag)]    # Todo: 이거 뭐지 ... ?
+        """
+        idxs_lb: (bool) 기존 데이터의 label 여부
+        lb_flag: (bool) 기존 데이터의 label + 새로 label 달릴 것  
+        """
+        return np.arange(self.n_pool)[(self.idxs_lb ^ lb_flag)]     # 새로 label 달릴 것들 인덱스
