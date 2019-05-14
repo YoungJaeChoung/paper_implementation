@@ -13,6 +13,8 @@ import keras.backend as K
 from keras.losses import categorical_crossentropy
 from keras.layers import Lambda
 from keras import optimizers
+
+# todo cleverhans ... ?
 from cleverhans.attacks import FastGradientMethod, DeepFool
 from cleverhans.utils_keras import KerasModelWrapper
 
@@ -27,7 +29,8 @@ def get_unlabeled_idx(X_train, labeled_idx):
 
 class QueryMethod:
     """
-    A general class for query strategies, with a general method for querying examples to be labeled.
+    A general class for query strategies,
+    with a general method for querying examples to be labeled.
     """
 
     def __init__(self, model, input_shape=(28,28), num_labels=10, gpu=1):
@@ -38,7 +41,8 @@ class QueryMethod:
 
     def query(self, X_train, Y_train, labeled_idx, amount):
         """
-        get the indices of labeled examples after the given amount have been queried by the query strategy.
+        get the indices of labeled examples
+        after the given amount have been queried by the query strategy.
         :param X_train: the training set
         :param Y_train: the training labels
         :param labeled_idx: the indices of the labeled examples
@@ -430,6 +434,7 @@ class DiscriminativeStochasticSampling(QueryMethod):
 
 
 class CoreSetSampling(QueryMethod):
+    # todo: 필사 1 회
     """
     An implementation of the greedy core set query strategy.
     """
@@ -438,18 +443,20 @@ class CoreSetSampling(QueryMethod):
         super().__init__(model, input_shape, num_labels, gpu)
 
     def greedy_k_center(self, labeled, unlabeled, amount):
-
         greedy_indices = []
 
-        # get the minimum distances between the labeled and unlabeled examples (iteratively, to avoid memory issues):
-        min_dist = np.min(distance_matrix(labeled[0, :].reshape((1, labeled.shape[1])), unlabeled), axis=0)
+        # get the minimum distances between the labeled and unlabeled examples
+        # (iteratively, to avoid memory issues):
+        min_dist = np.min(distance_matrix(labeled[0, :].reshape((1, labeled.shape[1])),
+                                          unlabeled), axis=0)
         min_dist = min_dist.reshape((1, min_dist.shape[0]))
         for j in range(1, labeled.shape[0], 100):
             if j + 100 < labeled.shape[0]:
                 dist = distance_matrix(labeled[j:j+100, :], unlabeled)
             else:
                 dist = distance_matrix(labeled[j:, :], unlabeled)
-            min_dist = np.vstack((min_dist, np.min(dist, axis=0).reshape((1, min_dist.shape[1]))))
+            min_dist = np.vstack((min_dist,
+                                  np.min(dist, axis=0).reshape((1, min_dist.shape[1]))))
             min_dist = np.min(min_dist, axis=0)
             min_dist = min_dist.reshape((1, min_dist.shape[0]))
 
@@ -457,7 +464,9 @@ class CoreSetSampling(QueryMethod):
         farthest = np.argmax(min_dist)
         greedy_indices.append(farthest)
         for i in range(amount-1):
-            dist = distance_matrix(unlabeled[greedy_indices[-1], :].reshape((1,unlabeled.shape[1])), unlabeled)
+            dist = distance_matrix(
+                unlabeled[greedy_indices[-1], :].reshape((1,unlabeled.shape[1])),
+                unlabeled)
             min_dist = np.vstack((min_dist, dist.reshape((1, min_dist.shape[1]))))
             min_dist = np.min(min_dist, axis=0)
             min_dist = min_dist.reshape((1, min_dist.shape[0]))
@@ -471,9 +480,12 @@ class CoreSetSampling(QueryMethod):
         unlabeled_idx = get_unlabeled_idx(X_train, labeled_idx)
 
         # use the learned representation for the k-greedy-center algorithm:
-        representation_model = Model(inputs=self.model.input, outputs=self.model.get_layer('softmax').input)
+        representation_model = \
+            Model(inputs=self.model.input, outputs=self.model.get_layer('softmax').input)
         representation = representation_model.predict(X_train, verbose=0)
-        new_indices = self.greedy_k_center(representation[labeled_idx, :], representation[unlabeled_idx, :], amount)
+        new_indices = \
+            self.greedy_k_center(representation[labeled_idx, :],
+                                 representation[unlabeled_idx, :], amount)
         return np.hstack((labeled_idx, unlabeled_idx[new_indices]))
 
 
@@ -824,7 +836,9 @@ class EGLSampling(QueryMethod):
 
 class CombinedSampling(QueryMethod):
     """
-    An implementation of a query strategy which naively combines two given query strategies, sampling half of the batch
+    An implementation of a query strategy
+    which naively combines two given query strategies,
+    sampling half of the batch
     from one strategy and the other half from the other strategy.
     """
 

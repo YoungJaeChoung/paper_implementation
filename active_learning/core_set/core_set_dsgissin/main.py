@@ -26,8 +26,10 @@ def parse_input():
     p.add_argument('initial_size', type=int, help="initial sample size for active learning")
     p.add_argument('iterations', type=int, help="number of active learning batches to sample")
     p.add_argument('method', type=str,
-                   choices={'Random','CoreSet','CoreSetMIP','Discriminative','DiscriminativeLearned','DiscriminativeAE','DiscriminativeStochastic','Uncertainty','Bayesian','UncertaintyEntropy','BayesianEntropy','EGL','Adversarial'},
-                   help="sampling method ('Random','CoreSet','CoreSetMIP','Discriminative','DiscriminativeLearned','DiscriminativeAE','DiscriminativeStochastic','Uncertainty','Bayesian','UncertaintyEntropy','BayesianEntropy','EGL','Adversarial')")
+                   choices={'Random','CoreSet','CoreSetMIP','Discriminative','DiscriminativeLearned','DiscriminativeAE',
+                            'DiscriminativeStochastic','Uncertainty','Bayesian','UncertaintyEntropy','BayesianEntropy','EGL','Adversarial'},
+                   help="sampling method ('Random','CoreSet','CoreSetMIP','Discriminative','DiscriminativeLearned','DiscriminativeAE',"
+                        "'DiscriminativeStochastic','Uncertainty','Bayesian','UncertaintyEntropy','BayesianEntropy','EGL','Adversarial')")
     p.add_argument('experiment_folder', type=str,
                    help="folder where the experiment results will be saved")
     p.add_argument('--method2', '-method2', type=str,
@@ -159,9 +161,12 @@ def load_cifar_100(label_mode='fine'):
     return (x_train, y_train), (x_test, y_test)
 
 
-def evaluate_sample(training_function, X_train, Y_train, X_test, Y_test, checkpoint_path):
+def evaluate_sample(training_function,
+                    X_train, Y_train, X_test, Y_test,
+                    checkpoint_path):
     """
-    A function that accepts a labeled-unlabeled data split and trains the relevant model on the labeled data, returning
+    A function that accepts a labeled-unlabeled data split
+    and trains the relevant model on the labeled data, returning
     the model and it's accuracy on the test set.
     """
 
@@ -177,7 +182,9 @@ def evaluate_sample(training_function, X_train, Y_train, X_test, Y_test, checkpo
     Y_train = Y_train[int(0.2*Y_train.shape[0]):]
 
     # train and evaluate the model:
-    model = training_function(X_train, Y_train, X_validation, Y_validation, checkpoint_path, gpu=args.gpu)
+    model = training_function(X_train, Y_train,
+                              X_validation, Y_validation,
+                              checkpoint_path, gpu=args.gpu)
     if args.data_type in ['imdb', 'wiki']:
         acc = model.evaluate(X_test, Y_test, verbose=0)
     else:
@@ -223,12 +230,17 @@ if __name__ == '__main__':
 
     # load the indices:
     if args.initial_idx_path is not None:
-        idx_path = os.path.join(args.initial_idx_path, '{exp}_{size}_{data}.pkl'.format(exp=args.experiment_index, size=args.initial_size, data=args.data_type))
+        idx_path = os.path.join(
+            args.initial_idx_path,
+            '{exp}_{size}_{data}.pkl'.format(exp=args.experiment_index,
+                                             size=args.initial_size,
+                                             data=args.data_type))
         with open(idx_path, 'rb') as f:
             labeled_idx = pickle.load(f)
     else:
         print("No Initial Indices Found - Drawing Random Indices...")
-        labeled_idx = np.random.choice(X_train.shape[0], args.initial_size, replace=False)
+        labeled_idx = np.random.choice(X_train.shape[0], args.initial_size,
+                                       replace=False)
 
     # set the first query method:
     if args.method == 'Random':
