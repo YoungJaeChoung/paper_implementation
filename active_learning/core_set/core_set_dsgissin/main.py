@@ -206,7 +206,7 @@ if __name__ == '__main__':
             input_shape = (28, 28, 1)
         else:
             input_shape = (1, 28, 28)
-        evaluation_function = train_mnist_model
+        evaluation_function = train_LeNet_model
     if args.data_type == 'cifar10':
         (X_train, Y_train), (X_test, Y_test) = load_cifar_10()
         num_labels = 10

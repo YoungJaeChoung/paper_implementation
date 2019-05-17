@@ -434,41 +434,57 @@ class DiscriminativeStochasticSampling(QueryMethod):
 
 
 class CoreSetSampling(QueryMethod):
-    # todo: 필사 1 회
+    # todo: 필사 4 회
     """
     An implementation of the greedy core set query strategy.
+
+    amount: the number of samples to query
     """
 
-    def __init__(self, model, input_shape, num_labels, gpu):
-        super().__init__(model, input_shape, num_labels, gpu)
+    def __init__(self, model, input_shape, nb_labels, gpu):
+        super().__init__(model, input_shape, nb_labels, gpu)
 
     def greedy_k_center(self, labeled, unlabeled, amount):
         greedy_indices = []
 
         # get the minimum distances between the labeled and unlabeled examples
         # (iteratively, to avoid memory issues):
+        # Todo: labeled[0, :].reshape((1, labeled.shape[1])) 의 용도 ... ?
+        #   일단 아무거나 min_dist 로 넣어두는 건가 ... ?
         min_dist = np.min(distance_matrix(labeled[0, :].reshape((1, labeled.shape[1])),
                                           unlabeled), axis=0)
+        # Todo: 왜 이거 이렇게 reshape 할까 ... ?
         min_dist = min_dist.reshape((1, min_dist.shape[0]))
-        for j in range(1, labeled.shape[0], 100):
-            if j + 100 < labeled.shape[0]:
-                dist = distance_matrix(labeled[j:j+100, :], unlabeled)
+        nb_obs = labeled.shape[0]
+        # get minimum distance
+        # 100개씩 distance 계산 (to avoid memory issues)
+        for idx in range(1, nb_obs, 100):
+            if idx + 100 < nb_obs:
+                dist = distance_matrix(labeled[idx:idx+100, :], unlabeled)
             else:
-                dist = distance_matrix(labeled[j:, :], unlabeled)
+                dist = distance_matrix(labeled[idx:, :], unlabeled)
+            # compare min_dist, np.min(dist)
             min_dist = np.vstack((min_dist,
                                   np.min(dist, axis=0).reshape((1, min_dist.shape[1]))))
             min_dist = np.min(min_dist, axis=0)
             min_dist = min_dist.reshape((1, min_dist.shape[0]))
 
+        # todo: 왜 min dist 랑 farthest 랑 따로 진행될까 ... ?
         # iteratively insert the farthest index and recalculate the minimum distances:
+        # todo: 여기서 farthest 가 제대로 구해지는거 맞나 ... ?
+        #  debug 해서 계산 되는 것 봐야 알 듯
         farthest = np.argmax(min_dist)
         greedy_indices.append(farthest)
-        for i in range(amount-1):
+        # greedy_indices 의 개수를 amount 개만큼 하려고 amount - 1 하는 듯
+        for _ in range(amount-1):
+            # todo: 이 부분 어떻게 계산되는지 보려면 debug 돌려보면 좋을 듯 ... ?
             dist = distance_matrix(
+                # todo: 이 부분 무슨 거리일까...? 왜 reshape...?
                 unlabeled[greedy_indices[-1], :].reshape((1,unlabeled.shape[1])),
                 unlabeled)
             min_dist = np.vstack((min_dist, dist.reshape((1, min_dist.shape[1]))))
             min_dist = np.min(min_dist, axis=0)
+            # todo: 왜 min_dist.shape[1] 이 아닌 [0] 을 사용할까 ... ?
             min_dist = min_dist.reshape((1, min_dist.shape[0]))
             farthest = np.argmax(min_dist)
             greedy_indices.append(farthest)
@@ -481,7 +497,8 @@ class CoreSetSampling(QueryMethod):
 
         # use the learned representation for the k-greedy-center algorithm:
         representation_model = \
-            Model(inputs=self.model.input, outputs=self.model.get_layer('softmax').input)
+            Model(inputs=self.model.input,
+                  outputs=self.model.get_layer('softmax').input)
         representation = representation_model.predict(X_train, verbose=0)
         new_indices = \
             self.greedy_k_center(representation[labeled_idx, :],

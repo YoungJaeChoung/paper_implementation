@@ -55,43 +55,43 @@ class QueryMethod:
         self.model = new_model
 
 
-class CoreSetSampling(QueryMethod):
+def get_unlabeled_idx(X_train, labeled_idx):
     """
+    Given the training set and the indices of the labeled examples, return the indices of the unlabeled examples.
+    """
+    return np.arange(X_train.shape[0])[np.logical_not(np.in1d(np.arange(X_train.shape[0]),
+                                                              labeled_idx))]
 
-    """
-    # Todo: num_labels ... ?
-    def __init__(self, model, input_shape, num_labels, gpu):
-        super().__init__(model, input_shape, num_labels, gpu)
+
+class CoreSetSampling(QueryMethod):
+    def __init__(self, model, input_shape, nb_labels, gpu):
+        super().__init__(model, input_shape, nb_labels, gpu)
 
     def greedy_k_center(self, labeled, unlabeled, amount):
         greedy_indices = []
 
-        # get the minimum distances
-        # between the labeled and unlabeled examples
-        # (iteratively, to avoid memory isseus):
         min_dist = np.min(distance_matrix(labeled[0, :].reshape((1, labeled.shape[1])),
-                                          unlabeled), axis=0)
+                          unlabeled), axis=0)
         min_dist = min_dist.reshape((1, min_dist.shape[0]))
-        # todo: 100 개 씩 하는거 정리 필요 - parameter 로 받음
-        for j in range(1, labeled.shape[0], 100):
-            if j + 100 < labeled.shape[0]:
-                dist = distance_matrix(labeled[j:(j+100), :], unlabeled)
+        nb_obs = labeled.shape[0]
+
+        for idx in range(1, nb_obs, 100):
+            if idx + 100 < nb_obs:
+                dist = distance_matrix(labeled[idx:idx+100, :], unlabeled)
             else:
-                dist = distance_matrix(labeled[j:, :], unlabeled)
-            # todo: np.vstack() ... ?
-            #  왜 np.vtack 을 사용할까 ... ?
+                dist = distance_matrix(labeled[idx:, :], unlabeled)
             min_dist = np.vstack((min_dist,
                                   np.min(dist, axis=0).reshape((1, min_dist.shape[1]))))
             min_dist = np.min(min_dist, axis=0)
             min_dist = min_dist.reshape((1, min_dist.shape[0]))
 
-        # iteratively insert the farthest index and recalculate the minimum distances:
         farthest = np.argmax(min_dist)
         greedy_indices.append(farthest)
-        # todo: 왜 amount - 1 개 만큼 하지 ... ?
-        for i in range(amount-1):
-            dist = distance_matrix(unlabeled[greedy_indices[-1], :].reshape((1, unlabeled.shape[1])),
-                                   unlabeled)
+        for _ in range(amount-1):
+            dist = distance_matrix(
+                unlabeled[greedy_indices[-1], :].reshape((1, unlabeled.shape[1])),
+                unlabeled
+            )
             min_dist = np.vstack((min_dist, dist.reshape((1, min_dist.shape[1]))))
             min_dist = np.min(min_dist, axis=0)
             min_dist = min_dist.reshape((1, min_dist.shape[0]))
@@ -103,13 +103,34 @@ class CoreSetSampling(QueryMethod):
     def query(self, X_train, Y_train, labeled_idx, amount):
         unlabeled_idx = get_unlabeled_idx(X_train, labeled_idx)
 
-        # use the learned representation for the k-greedy-center algorith:
-        # Todo: Model 부분 익숙치 않음 ㅡ Model 이 어디서 나온걸까 ... ?
-        representation_model = \
-            Model(inputs=self.model.input, outputs=self.model.get_layer('softmax').input)
+        representation_model = Model(inputs=self.model.input,
+                                     outputs=self.model.get_layer('softmax').input)
         representation = representation_model.predict(X_train, verbose=0)
+
         new_indices = self.greedy_k_center(representation[labeled_idx, :],
                                            representation[unlabeled_idx, :],
                                            amount)
-        # Todo: 왜 np.hstack 을 사용할까 ... ?
         return np.hstack((labeled_idx, unlabeled_idx[new_indices]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

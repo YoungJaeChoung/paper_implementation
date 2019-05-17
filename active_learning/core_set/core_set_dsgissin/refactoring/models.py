@@ -193,6 +193,7 @@ class DelayedModelCheckpoint(Callback):
 
         if self.monitor == "val_acc":
             current = logs.get(self.monitor)
+            # delay to save until the predefined number of iterations, self.delay
             if current >= self.best and epoch > self.delay:
                 if self.verbose > 0:
                     print("\nEpoch %05d: %s improved from %0.5f to %0.5f,"
@@ -206,10 +207,11 @@ class DelayedModelCheckpoint(Callback):
                     self.model.save(self.filepath, overwrite=True)
 
 
-class ModelGPU(Model):
-    def __init__(self, ser_model, gpus):
+class ModelMGPU(Model):
+    def __init__(self, ser_model, gpus):    # Todo: init 에 밑줄 뜨는데 괜찮나 ... ?
         pmodel = multi_gpu_model(ser_model, gpus,
-                                 cpu_relocation=False, cpu_merge=False)
+                                 cpu_relocation=False,
+                                 cpu_merge=False)
         self.__dict__.update(pmodel.__dict__)
         self._smodel = ser_model
 
@@ -217,33 +219,34 @@ class ModelGPU(Model):
         if 'load' in attrname or 'save' in attrname:
             return getattr(self._smodel, attrname)
 
-        return super(ModelGPU, self).__getattribute__(attrname)
+        return super(ModelMGPU, self).__getattribute__(attrname)
 
 
-
-def train_mnist_model(X_train, Y_train, X_validation, Y_validation,
-                      checkpoint_path, gpu=1):
+def train_LeNet_model(X_train, Y_train, X_validation, Y_validation,
+                      checkpoint_path,
+                      input_shape=None,
+                      nb_labels=10, gpu=1):
     """
     A function that trains and returns a LeNet model
     on the labeled MNIST data
     """
 
-    if K.image_data_format() == "channels_last":
-        input_shape = (28, 28, 1)
-    else:
-        input_shape = (1, 28, 28)
+    if input_shape is None:
+        if K.image_data_format() == "channels_last":
+            input_shape = (28, 28, 1)   # mnist
+        else:
+            input_shape = (1, 28, 28)   # mnist
 
-    model = get_LeNet_model(input_shape=input_shape, labels=10)
+    # todo: Y_train.shape
+    model = get_LeNet_model(input_shape=input_shape, nb_labels=nb_labels)
     optimizer = optimizers.Adam()
     model.compile(loss="categorical_crossentropy",
                   optimizer=optimizer,
                   metrics=['accuracy'])
-    # Todo: DelayedModelCheckpoint ... ?
     callbacks = [DelayedModelCheckpoint(filepath=checkpoint_path, verbose=1, weights=True)]
 
     if gpu > 1:
-        # todo: ModelGPU ... ?
-        gpu_model = ModelGPU(model, gpus=gpu)
+        gpu_model = ModelMGPU(model, gpus=gpu)
         gpu_model.compile(loss="categorical_crossentroy",
                           optimizer=optimizer,
                           metrics=['accuracy'])
@@ -252,7 +255,7 @@ def train_mnist_model(X_train, Y_train, X_validation, Y_validation,
                       batch_size=32,
                       shuffle=True,
                       validation_data=(X_validation, Y_validation),
-                      callbacks=callbacks,  # todo: callbacks ... ?
+                      callbacks=callbacks,
                       verbose=2)
 
         del model
@@ -265,6 +268,12 @@ def train_mnist_model(X_train, Y_train, X_validation, Y_validation,
         model.load_weights(checkpoint_path)
         return model
     else:
+        # Todo: error on
+        #  check_array_length_consistency(x, y, sample_weights)
+        """
+        X_train.shape   # (80, 28, 28, 1)
+        Y_train.shape   # (84, 10)
+        """
         model.fit(X_train, Y_train,
                   epochs=150,
                   batch_size=32,

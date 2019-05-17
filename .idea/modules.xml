@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/paper_implementation.iml" filepath="$PROJECT_DIR$/.idea/paper_implementation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../partial_discharge/.idea/partial_discharge.iml" filepath="$PROJECT_DIR$/../partial_discharge/.idea/partial_discharge.iml" />
       <module fileurl="file://$PROJECT_DIR$/../preprocessing/.idea/preprocessing.iml" filepath="$PROJECT_DIR$/../preprocessing/.idea/preprocessing.iml" />
     </modules>
   </component>

@@ -376,24 +376,25 @@ class DelayedModelCheckpoint(Callback):
                     self.model.save(self.filepath, overwrite=True)
 
 
-
 class ModelMGPU(Model):
-    # Todo: 필사 2 회
-    # Todo: Model class ... ?
-    # Todo: 사용된 예제 보면 좋을 듯
+    # Todo: 필사 6 회
+    """
+    multi-GPU data parallelism
+    pmodel: Replicated a model on different GPUs.
+    ser_model: original model
+    """
     def __init__(self, ser_model, gpus):
-        # todo: ser_model ... ?
-        # todo: multi_gpu_model ... ?
-        #  함수 ... ?
-        #  cpu_relocation ... ?
-        #  cpu_merge ... ?
-        # todo: pmodel ... ? 이건 왜 안사용하지 ... ?
+        # multi_gpu_model
+        # .... Replicates a model on different GPUs.
+        # .... this function implements single-machine
+        # ....   multi-GPU data parallelism.
+        #      - Divide the model's input(s) into multiple sub-batches.
+        #      - Apply a model copy on each sub-batch. Every model copy
+        #          is executed on a dedicated GPU.
+        #      - Concatenate the results (on CPU) into one big batch.
         pmodel = multi_gpu_model(ser_model, gpus,
-                                 cpu_relocation=False, cpu_merge=False)
-        # todo: self.__dict__ ... ?
-        # todo: self.__dict__.update ... ?
-        # todo: pmodel.__dict__ ... ?
-        # todo: self._smodel ... ?
+                                 cpu_relocation=False,
+                                 cpu_merge=False)
         self.__dict__.update(pmodel.__dict__)
         self._smodel = ser_model
 
@@ -404,9 +405,9 @@ class ModelMGPU(Model):
         """
         if 'load' in attrname or 'save' in attrname:
             # todo: self._smodel ... ?
+            #  saved model ... ?
             return getattr(self._smodel, attrname)
 
-        # todo: __getattribute__ ... ? 블로그 정리 필요
         return super(ModelMGPU, self).__getattribute__(attrname)
 
 
