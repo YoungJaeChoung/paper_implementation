@@ -1,4 +1,5 @@
 # http://research.sualab.com/introduction/practice/2019/04/01/bayesian-optimization-overview-2.html
+# https://github.com/fmfn/BayesianOptimization/blob/master/examples/visualization.ipynb
 
 from bayes_opt import BayesianOptimization
 import matplotlib.pyplot as plt

@@ -1,10 +1,14 @@
 # https://github.com/sualab/asirra-dogs-cats-classification/blob/master/models/nn.py
 
-import time
+# todo: ModuleNotFoundError: No module named 'models.layers'; 'models' is not a package
+
+from alexNet.models.layers import conv_layer, max_pool, fc_layer
 from abc import abstractmethod
+
 import tensorflow as tf
 import numpy as np
-from models.layers import conv_layer, max_pool, fc_layer
+import time
+
 
 class ConvNet(object):
     """Base class for Convolutional Neural Networks."""
