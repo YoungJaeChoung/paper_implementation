@@ -46,7 +46,7 @@ class kCenterGreedy(SamplingMethod):
         super(kCenterGreedy, self).__init__()
         self.X = X
         self.y = y
-        self.flat_X = self.flatten_X()
+        self.flat_X = self.flatten_X()  # todo: 이거 뭐지 ... ?
         self.name = 'kcenter'
         self.features = self.flat_X
         self.metric = metric
@@ -55,13 +55,18 @@ class kCenterGreedy(SamplingMethod):
         self.already_selected = []
 
     def update_distances(self, cluster_centers, only_new=True, reset_dist=False):
+        # Todo: 이 함수가 왜 필요하지 ... ?
         """ Update min distances given cluster centers.
 
-        Args:
-        cluster_centers: indices of cluster centers
-        only_new: only calculate distance for newly selected points and update
-          min_distances.
-        rest_dist: whether to reset min_distances.
+        Args
+        ----
+        cluster_centers:
+            indices of cluster centers
+        only_new:
+            only calculate distance for newly selected points
+            and update min_distances.
+        reset_dist:
+            whether to reset min_distances.
         """
 
         if reset_dist:
@@ -69,7 +74,7 @@ class kCenterGreedy(SamplingMethod):
         if only_new:
             cluster_centers = [d for d in cluster_centers
                                if d not in self.already_selected]
-        if cluster_centers:
+        if cluster_centers:    # if cluster_centers exist
             # Update min_distances for all examples given new cluster center.
             x = self.features[cluster_centers]
             dist = pairwise_distances(self.features, x, metric=self.metric)
@@ -80,23 +85,30 @@ class kCenterGreedy(SamplingMethod):
             self.min_distances = np.minimum(self.min_distances, dist)
 
     def select_batch_(self, model, already_selected, N, **kwargs):
+        # Todo: kwargs 에 뭐가 들어가지 ... ?
         """
-        Diversity promoting active learning method that greedily forms a batch
-        to minimize the maximum distance to a cluster center among all unlabeled
-        datapoints.
+        Diversity promoting active learning method
+        that greedily forms a batch to minimize the maximum distance to a cluster center
+        among all unlabeled datapoints.
 
-        Args:
-        model: model with scikit-like API with decision_function implemented
-        already_selected: index of datapoints already selected
-        N: batch size
+        Args
+        ----
+        todo: model 에는 뭐가 들어가지 ... ?
+        model:
+            model with scikit-like API with decision_function implemented
+        already_selected:
+            index of datapoints already selected
+        N:
+            batch size
 
-        Returns:
+        Returns
+        -------
         indices of points selected to minimize distance to cluster centers
         """
-
         try:
-            # Assumes that the transform function takes in original data and not
-            # flattened data.
+            # Assumes that the transform function
+            # takes in original data and not flattened data.
+            # todo: oridignal data 랑 flattened data 랑 뭐가 다르지 ... ?
             print('Getting transformed features...')
             self.features = model.transform(self.X)
             print('Calculating distances...')
