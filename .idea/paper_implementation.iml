@@ -14,6 +14,11 @@
     <orderEntry type="library" name="R Skeletons" level="application" />
     <orderEntry type="module" module-name="preprocessing" />
     <orderEntry type="module" module-name="partial_discharge" />
+    <orderEntry type="module" module-name="Algorithm_ver.2" />
+    <orderEntry type="module" module-name="Fault_Wave_Analysis" />
+    <orderEntry type="module" module-name="Fault_Analysis" />
+    <orderEntry type="module" module-name="sports" />
+    <orderEntry type="module" module-name="association" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />

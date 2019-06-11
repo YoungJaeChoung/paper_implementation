@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Algorithm_ver.2/.idea/Algorithm_ver.2.iml" filepath="$PROJECT_DIR$/../Algorithm_ver.2/.idea/Algorithm_ver.2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Git_Softfactory_secret/kepco_secret_doc/프로젝트 소스 코드 관리/상태추론/Fault_Analysis/.idea/Fault_Analysis.iml" filepath="$PROJECT_DIR$/../../Git_Softfactory_secret/kepco_secret_doc/프로젝트 소스 코드 관리/상태추론/Fault_Analysis/.idea/Fault_Analysis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Git_Softfactory_secret/kepco_secret_doc/프로젝트 소스 코드 관리/상태추론/Fault_Wave_Analysis/.idea/Fault_Wave_Analysis.iml" filepath="$PROJECT_DIR$/../../Git_Softfactory_secret/kepco_secret_doc/프로젝트 소스 코드 관리/상태추론/Fault_Wave_Analysis/.idea/Fault_Wave_Analysis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../association/.idea/association.iml" filepath="$PROJECT_DIR$/../association/.idea/association.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/paper_implementation.iml" filepath="$PROJECT_DIR$/.idea/paper_implementation.iml" />
       <module fileurl="file://$PROJECT_DIR$/../partial_discharge/.idea/partial_discharge.iml" filepath="$PROJECT_DIR$/../partial_discharge/.idea/partial_discharge.iml" />
       <module fileurl="file://$PROJECT_DIR$/../preprocessing/.idea/preprocessing.iml" filepath="$PROJECT_DIR$/../preprocessing/.idea/preprocessing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../sports/.idea/sports.iml" filepath="$PROJECT_DIR$/../sports/.idea/sports.iml" />
     </modules>
   </component>
 </project>

@@ -2,6 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../Algorithm_ver.2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../association" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../partial_discharge" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../sports" vcs="Git" />
   </component>
 </project>
