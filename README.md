@@ -6,5 +6,5 @@
 
 # [CNN]
 - Basic> cnn (with batchnorm, dropout)
-- ResNet18 (for serving) [Refactoring Others Code]
-- ResNet18 + Cost-Effective Active Learning [Refactoring Others Code]
+- ResNet> ResNet18 (for serving) [Refactoring Others Code]
+- ResNet> ResNet18 + Cost-Effective Active Learning [Refactoring Others Code]
