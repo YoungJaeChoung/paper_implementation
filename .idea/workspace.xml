@@ -2,20 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="976013d8-9605-47d8-8bed-ea0fb3b29e97" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/../association/discovery_frequent_episodes/winepi_algorithm.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../association/process_mining/tmp.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/active_learning/core_set/coreset_greedy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Algorithm_ver.2/Problem_Not_Familiar_with/2079.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Algorithm_ver.2/Problem_Not_Familiar_with/2079.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../association/.idea/association.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../association/.idea/association.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../association/datatheque.py" beforeDir="false" afterPath="$PROJECT_DIR$/../association/datatheque.py" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/CNN/alexNet/learning/evaluators.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CNN/alexNet/learning/optimizers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CNN/alexNet/learning/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CNN/datasets/asirra.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hyperParameterOptimization/bayesianHPO/examples/lrRate_and_weightDecay.py" afterDir="false" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/paper_implementation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/paper_implementation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/active_learning/core_set/core_set_dsgissin/refactoring/tmp.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../preprocessing/.idea/preprocessing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../preprocessing/.idea/preprocessing.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../sports/geckodriver.log" beforeDir="false" afterPath="$PROJECT_DIR$/../sports/geckodriver.log" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/CNN/alexNet/models/alexNet.py" beforeDir="false" afterPath="$PROJECT_DIR$/CNN/alexNet/models/nn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hyperParameterOptimization/bayesianHPO/examples/exponential_function.py" beforeDir="false" afterPath="$PROJECT_DIR$/hyperParameterOptimization/bayesianHPO/examples/exponential_function.py" afterDir="false" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +35,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -41,30 +54,102 @@
               <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
+=======
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/active_learning/core_set/core_set_dsgissin/refactoring/main.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="4788">
+                    <caret line="262" column="42" selection-start-line="262" selection-start-column="42" selection-end-line="262" selection-end-column="42" />
+                    <folding>
+                      <element signature="e#0#13#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/active_learning/core_set/core_set_dsgissin/refactoring/query_methods.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="95">
+                    <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/active_learning/core_set/core_set_dsgissin/refactoring/models.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="4066">
+                    <caret line="224" column="4" selection-start-line="224" selection-start-column="4" selection-end-line="224" selection-end-column="4" />
+                    <folding>
+                      <element signature="e#82#100#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hyperParameterOptimization/bayesianHPO/examples/lrRate_and_weightDecay.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+              <folding>
+                <element signature="e#101#163#0" expanded="true" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/../association/discovery_frequent_episodes/winepi_algorithm.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="25" column="16" lean-forward="true" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+=======
+        <entry file="file://$PROJECT_DIR$/CNN/datasets/asirra.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+              <folding>
+                <element signature="e#92#128#0" expanded="true" />
+              </folding>
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/bs4/element.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="13547">
               <caret line="591" column="8" selection-start-line="591" selection-start-column="8" selection-end-line="591" selection-end-column="8" />
+=======
+        <entry file="file://$PROJECT_DIR$/CNN/alexNet/models/nn.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/bs4/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1495">
@@ -83,6 +168,10 @@
               </folding>
             </state>
           </provider>
+=======
+        <entry file="file://$PROJECT_DIR$/CNN/alexNet/models/layers.py">
+          <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -136,7 +225,11 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+<<<<<<< HEAD
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../association" />
+=======
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -158,6 +251,7 @@
         <option value="$PROJECT_DIR$/../partial_discharge/GISPD/tf_keras_for_serving/AL_cost_effective_resnet18.py" />
         <option value="$PROJECT_DIR$/../partial_discharge/GISPD/tf_keras_for_serving/AL_core_set_variant_resnet18.py" />
         <option value="$PROJECT_DIR$/../partial_discharge/GISPD/tf_keras_for_serving/compare_AL_result.py" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/active_learning/core_set/coreset_greedy.py" />
         <option value="$PROJECT_DIR$/../Algorithm_ver.2/tmp.py" />
         <option value="$PROJECT_DIR$/../Algorithm_ver.2/Problem_Not_Familiar_with/2079.py" />
@@ -176,6 +270,18 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
+=======
+        <option value="$PROJECT_DIR$/CNN/alexNet/models/alexNet.py" />
+        <option value="$PROJECT_DIR$/hyperParameterOptimization/bayesianHPO/examples/alexNet.py" />
+        <option value="$PROJECT_DIR$/hyperParameterOptimization/bayesianHPO/examples/lrRate_and_weightDecay.py" />
+        <option value="$PROJECT_DIR$/CNN/datasets/asirra.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="338" />
+    <option name="y" value="67" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
     <option name="width" value="1068" />
     <option name="height" value="1047" />
   </component>
@@ -192,12 +298,65 @@
           <expand>
             <path>
               <item name="paper_implementation" type="b2602c69:ProjectViewProjectNode" />
+<<<<<<< HEAD
               <item name="association" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="paper_implementation" type="b2602c69:ProjectViewProjectNode" />
               <item name="association" type="462c0819:PsiDirectoryNode" />
               <item name="discovery_frequent_episodes" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="paper_implementation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="paper_implementation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="paper_implementation" type="462c0819:PsiDirectoryNode" />
+              <item name="CNN" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="paper_implementation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="paper_implementation" type="462c0819:PsiDirectoryNode" />
+              <item name="CNN" type="462c0819:PsiDirectoryNode" />
+              <item name="alexNet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="paper_implementation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="paper_implementation" type="462c0819:PsiDirectoryNode" />
+              <item name="CNN" type="462c0819:PsiDirectoryNode" />
+              <item name="alexNet" type="462c0819:PsiDirectoryNode" />
+              <item name="learning" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="paper_implementation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="paper_implementation" type="462c0819:PsiDirectoryNode" />
+              <item name="CNN" type="462c0819:PsiDirectoryNode" />
+              <item name="alexNet" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="paper_implementation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="paper_implementation" type="462c0819:PsiDirectoryNode" />
+              <item name="CNN" type="462c0819:PsiDirectoryNode" />
+              <item name="datasets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="paper_implementation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="paper_implementation" type="462c0819:PsiDirectoryNode" />
+              <item name="hyperParameterOptimization" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="paper_implementation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="paper_implementation" type="462c0819:PsiDirectoryNode" />
+              <item name="hyperParameterOptimization" type="462c0819:PsiDirectoryNode" />
+              <item name="bayesianHPO" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="paper_implementation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="paper_implementation" type="462c0819:PsiDirectoryNode" />
+              <item name="hyperParameterOptimization" type="462c0819:PsiDirectoryNode" />
+              <item name="bayesianHPO" type="462c0819:PsiDirectoryNode" />
+              <item name="examples" type="462c0819:PsiDirectoryNode" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
             </path>
           </expand>
           <select />
@@ -206,6 +365,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Git_Softfactory_secret/kepco_secret_doc/개인 소스 코드 관리/정영재 연구원" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -213,6 +373,11 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\소프트팩토리\소프트팩토리_대전\Git\association\discovery_frequent_episodes" />
     </key>
+=======
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -297,10 +462,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15191898" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14285715" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -311,9 +480,15 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.329718" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49946696" weight="0.3546638" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50053304" side_tool="true" weight="0.3557484" />
       <window_info active="true" anchor="bottom" id="Python Console" order="10" visible="true" weight="0.2505423" />
+=======
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3557484" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" visible="true" weight="0.3234694" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -354,6 +529,7 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/keras/engine/network.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -379,6 +555,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21390">
           <caret line="935" column="4" selection-start-line="935" selection-start-column="4" selection-end-line="935" selection-end-column="4" />
+=======
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/keras/callbacks.py" />
+    <entry file="file://$PROJECT_DIR$/../preprocessing/classifier/lstm_attention.py" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/907059903/builtins.py" />
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/keras/engine/network.py" />
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/numpy/lib/arraysetops.py" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/907059903/numpy/core/_multiarray_umath.py" />
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/scipy/spatial/kdtree.py" />
+    <entry file="file://$PROJECT_DIR$/active_learning/core_set/core_set_dsgissin/refactoring/tmp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
         </state>
       </provider>
     </entry>
@@ -392,62 +581,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/keras/engine/training_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="236" selection-start-line="236" selection-end-line="236" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/keras/engine/training_utils.py" />
     <entry file="file://$PROJECT_DIR$/../partial_discharge/GISPD/active_learning/resnet_active_learning.py" />
     <entry file="file://$PROJECT_DIR$/active_learning/cost_effective_active_learning/cost_effective.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6786" />
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/../partial_discharge/GISPD/active_learning/AL_cost_effective_resnet18.py" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
     <entry file="file://$PROJECT_DIR$/../partial_discharge/GISPD/tf_keras_for_serving/AL_resnet_gipd_tf_keras.py" />
     <entry file="file://$PROJECT_DIR$/active_learning/core_set/core_set_dsgissin/refactoring/AL_core_set_resnet18.py" />
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/keras/engine/training.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2351">
-          <caret line="538" column="8" selection-start-line="538" selection-start-column="8" selection-end-line="538" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/keras_contrib/applications/resnet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="439" column="13" selection-start-line="439" selection-start-column="13" selection-end-line="439" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../partial_discharge/GISPD/preprocessing/event_to_x.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="137" column="54" lean-forward="true" selection-start-line="137" selection-start-column="54" selection-end-line="137" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../partial_discharge/GISPD/tf_keras_for_serving/resnet_tf_keras.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="401" column="31" lean-forward="true" selection-start-line="401" selection-start-column="16" selection-end-line="401" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/keras/utils/multi_gpu_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/keras/engine/training.py" />
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/keras_contrib/applications/resnet.py" />
+    <entry file="file://$PROJECT_DIR$/../partial_discharge/GISPD/preprocessing/event_to_x.py" />
+    <entry file="file://$PROJECT_DIR$/../partial_discharge/GISPD/tf_keras_for_serving/resnet_tf_keras.py" />
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/keras/utils/multi_gpu_utils.py" />
     <entry file="file://$PROJECT_DIR$/active_learning/core_set/core_set_dsgissin/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7268">
@@ -458,16 +609,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../preprocessing/preprocessing.py" />
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/matplotlib/figure.py" />
+    <entry file="file://$PROJECT_DIR$/../partial_discharge/GISPD/tf_keras_for_serving/AL_cost_effective_resnet18.py" />
+    <entry file="file://$PROJECT_DIR$/../partial_discharge/GISPD/tf_keras_for_serving/AL_core_set_resnet18.py" />
+    <entry file="file://$PROJECT_DIR$/../partial_discharge/GISPD/tf_keras_for_serving/compare_AL_result.py" />
     <entry file="file://$PROJECT_DIR$/active_learning/core_set/core_set_dsgissin/query_methods.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="167" selection-start-line="167" selection-end-line="167" />
+        <state relative-caret-position="345">
+          <caret line="174" column="25" selection-start-line="174" selection-start-column="25" selection-end-line="174" selection-end-column="25" />
           <folding>
             <element signature="e#254#263#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/keras/utils/multi_gpu_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="322">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/active_learning/core_set/core_set_dsgissin/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7268">
+          <caret line="316" column="64" selection-start-line="316" selection-start-column="64" selection-end-line="316" selection-end-column="64" />
+=======
+        <state relative-caret-position="4788">
+          <caret line="262" column="42" selection-start-line="262" selection-start-column="42" selection-end-line="262" selection-end-column="42" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
+          <folding>
+            <element signature="e#274#287#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/active_learning/core_set/core_set_dsgissin/query_methods.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="391">
+          <caret line="167" selection-start-line="167" selection-end-line="167" />
+=======
+        <state relative-caret-position="4066">
+          <caret line="224" column="4" selection-start-line="224" selection-start-column="4" selection-end-line="224" selection-end-column="4" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
+          <folding>
+            <element signature="e#254#263#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$USER_HOME$/AppData/Roaming/Python/Python36/site-packages/matplotlib/figure.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -557,9 +751,21 @@
           </folding>
         </state>
       </provider>
-    </entry>
+=======
     <entry file="file://$PROJECT_DIR$/active_learning/core_set/core_set_dsgissin/refactoring/query_methods.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CNN/alexNet/models/layers.py">
+      <provider selected="true" editor-type-id="text-editor" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CNN/alexNet/models/nn.py">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="23">
           <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
         </state>
@@ -579,12 +785,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="512">
           <caret line="613" selection-start-line="613" selection-end-line="613" />
+=======
+        <state relative-caret-position="95">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hyperParameterOptimization/bayesianHPO/examples/lrRate_and_weightDecay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
           <folding>
-            <element signature="e#0#59#0" expanded="true" />
+            <element signature="e#101#163#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/../Algorithm_ver.2/tmp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -624,6 +842,14 @@
           <caret line="237" selection-start-line="237" selection-end-line="255" selection-end-column="14" />
           <folding>
             <element signature="e#0#53#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/CNN/datasets/asirra.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="65" selection-start-line="10" selection-start-column="65" selection-end-line="10" selection-end-column="65" />
+          <folding>
+            <element signature="e#92#128#0" expanded="true" />
+>>>>>>> be1862463e6d8d43cd6811d10fed8cc2970697b6
           </folding>
         </state>
       </provider>

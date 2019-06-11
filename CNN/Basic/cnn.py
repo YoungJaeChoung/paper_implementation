@@ -202,7 +202,7 @@ if __name__ == "__main__":
         print(model.metrics_names, "\n", scores_validation_set)
 
         # predict
-        model.load_weights('./model_saved/lstm_attention_{}'.format(idx))
+        model.load_weights('./model_saved/cnn_basic_{}'.format(idx))
         y_pred_arr.append(model.predict(x_validation, batch_size=512))
         y_arr.append(y_validation)
 

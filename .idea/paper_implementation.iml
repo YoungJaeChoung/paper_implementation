@@ -7,8 +7,11 @@
       <sourceFolder url="file://$MODULE_DIR$/active_learning" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/active_learning/core_set/core_set_dsgissin" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/active_learning/core_set" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CNN/alexNet" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CNN" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CNN/alexNet/learning" isTestSource="false" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.6 (tf)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="R User Library" level="project" />
     <orderEntry type="library" name="R Skeletons" level="application" />
