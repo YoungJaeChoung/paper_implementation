@@ -2,7 +2,7 @@
 
 # [Active Learning]
 - (keras) Cost-Effective Active Learning for Deep Image Classification [Refactoring Others Code]
-- (keras) Active Learning for Convolutional Neural Networks_A Core-Set Approach [Doing]
+- (keras) Active Learning for Convolutional Neural Networks_A Core-Set Approach [Refactoring Others Code]
 
 # [CNN]
 - (keras) Basic> cnn (with batchnorm, dropout)
