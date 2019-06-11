@@ -5,5 +5,6 @@
 - Active Learning for Convolutional Neural Networks_A Core-Set Approach [Doing]
 
 # [CNN]
+- Basic> cnn (with batchnorm, dropout)
 - ResNet18 (for serving) [Refactoring Others Code]
 - ResNet18 + Cost-Effective Active Learning [Refactoring Others Code]
